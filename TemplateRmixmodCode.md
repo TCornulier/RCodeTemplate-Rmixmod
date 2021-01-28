@@ -1,4 +1,10 @@
-Rmixmod quickstart
+---
+layout: page
+title: "Rmixmod quickstart"
+permalink: /ExampleCode/
+---
+
+
 ================
 
 # Load ‘Rmixmod’ library
