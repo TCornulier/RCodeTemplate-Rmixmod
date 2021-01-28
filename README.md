@@ -1,6 +1,5 @@
 Rmixmod quickstart
 ================
-TCornulier
 28/01/2021
 
 A quick example of code to get started with fitting a finite Gaussian

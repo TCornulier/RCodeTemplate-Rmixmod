@@ -1,6 +1,5 @@
 ---
 title: "Rmixmod quickstart"
-author: TCornulier
 date: "`r format(Sys.time(), '%d/%m/%Y')`"
 editor_options:
   chunk_output_type: console
