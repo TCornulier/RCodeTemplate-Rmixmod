@@ -1,3 +1,0 @@
-# RCodeTemplate-Rmixmod
- 
-test
