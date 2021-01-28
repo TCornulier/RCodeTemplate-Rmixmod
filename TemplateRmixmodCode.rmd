@@ -1,24 +1,30 @@
 ---
 title: "Rmixmod quickstart"
+author: TCornulier
+date: "`r format(Sys.time(), '%d/%m/%Y')`"
 editor_options:
   chunk_output_type: console
-output: github_document
+output:
+  html_document:
+    df_print: paged
 ---
 
 
 ```{r setup, echo= FALSE}
-knitr::opts_chunk$set(echo= TRUE, message= FALSE, warning= FALSE, eval= TRUE, cache= FALSE)
+knitr::opts_chunk$set(echo= TRUE, message= TRUE, warning= FALSE, eval= TRUE, cache= FALSE)
 
 ```
 
-# Load 'Rmixmod' library
+A quick example of code to get started with fitting a finite Gaussian mixture model (here with just 2 clusters).
+
+## Load `Rmixmod` library
 
 ```{r packages}
 library(Rmixmod)
 
 ```
 
-# Simulate data
+## Simulate data
 
 ```{r simulation}
 set.seed(84)
@@ -28,7 +34,7 @@ hist(simulated.data$doy, nclass= 50)
 
 ```
 
-# Estimate a finite Gaussian mixture model with 2 clusters
+## Estimate a finite Gaussian mixture model with 2 clusters
 
 ```{r mixmod estimation}
 nclass<- 2
@@ -44,7 +50,7 @@ DD.EM1 <- mixmodCluster(dat4EM1, nbCluster= nclass,
 	seed= 45)
 
 ```
-# A few outputs from the model:
+## A few outputs from the model:
 
 ```{r model outputs}
 # show a summary of the best model containing the estimated parameters , the likelihood
@@ -52,26 +58,25 @@ summary(DD.EM1)
 
 ```
 
-> Note that the order of the clusters is random, but the simulated parameters are reasonably well estimated.
+> Note that the order of the clusters is random, but the simulated parameters are estimated pretty well.
 
 
-# Plot the estimated model
+## Plot the estimated model
 
 ```{r plot model}
-hist(DD.EM1)
+hist(DD.EM1) # default Rmixmod plot
 # plot(DD.EM1) if more than one cluster predictor
 
 ```
 
-# In case of interest:
 
-## We can do our own plot to compare estimated with data-generating model
+## Doing our own plot to compare estimated with data-generating model
 
 ```{r custom plots}
 hist(simulated.data$doy, nclass= 50, freq= F)
 x.seq<- seq(-4, 15, l= 200) # create a regular sequence along the x-axis
 
-# add the true generating distributions from which data were simulated:
+# add the distributions from which the data were generated:
 lines(x.seq, dnorm(x.seq, mean= 3, sd= 1) * 1/3, col= 2)
 lines(x.seq, dnorm(x.seq, mean= 6, sd= 0.8) * 2/3, col= 3)
 
