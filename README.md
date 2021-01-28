@@ -24,7 +24,7 @@ simulated.data<- data.frame(doy= c(rnorm(1000, mean= 3, sd= 1), rnorm(2000, mean
 hist(simulated.data$doy, nclass= 50)
 ```
 
-![](TemplateRmixmodCode_files/figure-gfm/simulation-1.png)<!-- -->
+![](readme_files/figure-gfm/simulation-1.png)<!-- -->
 
 ## Estimate a finite Gaussian mixture model with 2 clusters
 
@@ -79,7 +79,7 @@ hist(DD.EM1) # default Rmixmod plot
 
     ## [1] 1
 
-![](TemplateRmixmodCode_files/figure-gfm/plot%20model-1.png)<!-- -->
+![](readme_files/figure-gfm/plot%20model-1.png)<!-- -->
 
 ``` r
 # plot(DD.EM1) if more than one cluster predictor
@@ -114,7 +114,7 @@ lines(x.seq, dnorm(x.seq,
             col= 2, lwd= 2, lty= 2)
 ```
 
-![](TemplateRmixmodCode_files/figure-gfm/custom%20plots-1.png)<!-- -->
+![](readme_files/figure-gfm/custom%20plots-1.png)<!-- -->
 
 ## Extract the cluster assignment probabilities for each observation (obs in rows, clusters in columns)
 
@@ -137,7 +137,7 @@ matplot(DD.EM1@bestResult@proba,
         type= "p")
 ```
 
-![](TemplateRmixmodCode_files/figure-gfm/cluster%20assignment-1.png)<!-- -->
+![](readme_files/figure-gfm/cluster%20assignment-1.png)<!-- -->
 
 ``` r
 # Most likely cluster membership for each observation (as predicted by the best model)
@@ -151,7 +151,7 @@ legend(x= "right", paste("Cluster", 1:nclass),
         pch = 1, col = 1:nclass, bty= "n")
 ```
 
-![](TemplateRmixmodCode_files/figure-gfm/cluster%20assignment-2.png)<!-- -->
+![](readme_files/figure-gfm/cluster%20assignment-2.png)<!-- -->
 
 ## Classification “performance”
 
